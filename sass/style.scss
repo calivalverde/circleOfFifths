@@ -1,0 +1,28 @@
+// Import external libraries.
+//@import "compass";
+@import "singularitygs";
+@import "breakpoint";
+
+// Import sass partials	
+@import "sass/variables/**/*.scss";
+@import "sass/abstractions/**/*.scss";
+@import "sass/base/**/*.scss";
+@import "sass/components/**/*.scss";
+
+/* Setup */
+@import "reset";
+@import "mixins";
+@import "fonts";
+@import "globals";
+
+/* Grid  */
+@import "breakpoints";
+@import "grid";
+
+/* DP parts */
+@import "color-palette";
+@import "extendables";
+@import "theme";
+@import "menus";
+@import "blocks";
+@import "landing-pages";

@@ -1,0 +1,10 @@
+// Grid
+$grids: 12;
+$gutters: 1/6; /* 72/6=12px */
+
+.grid {
+	max-width: 996px;   
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}

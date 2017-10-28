@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+body {
+    font-family: 'Exo 2', sans-serif;
+    color: #b0aeac;
+    background: #2e2924;    
+    text-align: center;
+    @include font-size(14);
+}
+h1 { 
+    @include font-size(28);
+    color: #fff;
+    margin-bottom: 15px;
+}
+p {
+    font-weight: 200;
+    @include font-size(16);
+}
+a {
+    text-decoration: none;
+    color: #a5d577;
+}
+
+button {
+    border: none;
+    background: #fff;
+    margin: 5px;
+}

@@ -1,0 +1,39 @@
+{
+  "name": "circleoffifths",
+  "version": "1.0.0",
+  "description": "A Pen created at CodePen.io. You can find this one at https://codepen.io/calivalverde/pen/pWqMmd.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calivalverde/circleOfFifths.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/calivalverde/circleOfFifths/issues"
+  },
+  "homepage": "https://github.com/calivalverde/circleOfFifths#readme",
+  "devDependencies": {
+    "breakpoint-sass": "^2.7.1",
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-compass": "^2.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-strip-css-comments": "^1.2.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uncss": "^1.0.6",
+    "gulp-watch": "^4.3.11",
+    "node-sass-globbing": "0.0.23",
+    "sass-module-importer": "^1.4.0",
+    "singularitygs": "^1.8.0"
+  }
+}

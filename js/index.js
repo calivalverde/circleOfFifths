@@ -23,9 +23,9 @@ class Key {
   }
   get sharpsOrFlats () {
     let accidentals = allKeys[this.name];
-    return accidentals < 0 ? Math.abs(allKeys[this.name]) + ' flats'
+    return accidentals < 0 ? Math.abs(allKeys[this.name]) + '♭'
     : accidentals === 0 ? 'no flats or sharps.'
-    : allKeys[this.name] + ' sharps';  
+    : allKeys[this.name] + '♯';  
   }
   get pitches () {
     //quita el último caracter para evitar bemoles.
@@ -61,7 +61,7 @@ let reb = new Key('Db');
 let extractAllKeySigantures = Object.keys(allKeys);
 
 extractAllKeySigantures.forEach(function(key) {
-  document.write(`<button value='${key}' onclick='setKey(this.value)'>${key} Major</button>`);
+  document.write(`<button value='${key}' onclick='setKey(this.value)'>${key}</button>`);
 });
 
 

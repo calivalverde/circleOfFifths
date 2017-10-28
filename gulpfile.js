@@ -1,5 +1,6 @@
 'use strict';
 var gulp = require('gulp');
+const babel = require('gulp-babel');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
@@ -17,10 +18,20 @@ var sass_config = {
   includePaths: [
     'node_modules/breakpoint-sass/stylesheets/',
     'node_modules/singularitygs/stylesheets/',
-    'node_modules/modularscale-sass/stylesheets',
-    'node_modules/compass-mixins/lib/'
   ]
 };
+
+//Babel JavaScript compiler
+gulp.task('babel', () =>
+  gulp.src('./lib/es6/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(babel({
+        presets: ['env']
+    }))
+    .pipe(concat('compile.js'))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('./lib'))
+);
 
 //Uglifies javascript
 gulp.task('uglify', function() {
@@ -55,9 +66,7 @@ gulp.task('sass', function () {
 gulp.task('play', function(){
   livereload.listen();
     gulp.watch('./sass/**/*.scss', ['sass']);
-    gulp.watch('./min-js/*.js', ['concat']);
-    gulp.watch('./lib/*.js', ['uglify']);
-    gulp.watch(['./css/style.css', './**/*.twig', './js/main.js'], function (files){
+    gulp.watch(['./css/style.css', './**/*.html', './js/*.js'], function (files){
       livereload.changed(files)
     });
 });

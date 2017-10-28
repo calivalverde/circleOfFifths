@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 var gulp = require('gulp');
 const babel = require('gulp-babel');
 var sass = require('gulp-sass');
@@ -63,10 +63,16 @@ gulp.task('sass', function () {
 });
 
 //Type "gulp" on the command line to watch file changes
-gulp.task('play', function(){
+gulp.task('watch', function(){
   livereload.listen();
+    gulp.watch('./lib/es6/*.js', ['babel']);
+    gulp.watch('./lib/*.js', ['uglify']);
+    gulp.watch('../min-js/*.js', ['concat']);
     gulp.watch('./sass/**/*.scss', ['sass']);
     gulp.watch(['./css/style.css', './**/*.html', './js/*.js'], function (files){
       livereload.changed(files)
     });
 });
+
+//Default Task
+gulp.task('default', ['babel','uglify','concat','sass','watch']);

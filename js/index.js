@@ -58,8 +58,7 @@ let reb = new Key('Db');
 
 
 //Create Buttons
-
-function makeUL() {
+listOfKeys = () => {
 
   let extractAllKeySigantures = Object.keys(allKeys);
   
@@ -70,18 +69,13 @@ function makeUL() {
   
   extractAllKeySigantures.forEach(function(eachKey){
     var li = document.createElement('li');
-    li.setAttribute("value", eachKey);
+    li.setAttribute("id", eachKey);
     ul.appendChild(li);
-    li.innerHTML += eachKey;
+    li.innerHTML += `<button value='${eachKey}' onclick='setKey(this.value)'>${eachKey}</button>`;
   });
 }
-
-makeUL();
+listOfKeys();
  
-// let extractAllKeySigantures = Object.keys(allKeys);
-// extractAllKeySigantures.forEach(function(key) {
-//   document.write(`<button value='${key}' onclick='setKey(this.value)'>${key}</button>`);
-// });
 
 //Input
 setKey = (inputKey) => {

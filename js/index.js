@@ -58,12 +58,30 @@ let reb = new Key('Db');
 
 
 //Create Buttons
-let extractAllKeySigantures = Object.keys(allKeys);
 
-extractAllKeySigantures.forEach(function(key) {
-  document.write(`<button value='${key}' onclick='setKey(this.value)'>${key}</button>`);
-});
+function makeUL() {
 
+  let extractAllKeySigantures = Object.keys(allKeys);
+  
+  let ul = document.createElement('ul');
+  ul.setAttribute("class", "circle-container");
+  
+  document.querySelector('#myList').appendChild(ul);
+  
+  extractAllKeySigantures.forEach(function(eachKey){
+    var li = document.createElement('li');
+    li.setAttribute("value", eachKey);
+    ul.appendChild(li);
+    li.innerHTML += eachKey;
+  });
+}
+
+makeUL();
+ 
+// let extractAllKeySigantures = Object.keys(allKeys);
+// extractAllKeySigantures.forEach(function(key) {
+//   document.write(`<button value='${key}' onclick='setKey(this.value)'>${key}</button>`);
+// });
 
 //Input
 setKey = (inputKey) => {

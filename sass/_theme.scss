@@ -2,12 +2,13 @@ body {
     font-family: 'Exo 2', sans-serif;
     color: #b0aeac;
     background: #2e2924;    
-    //text-align: center;
-    @include font-size(14);
+    @include font-size(18);
+    line-height: 1.5;
 }
 h1 { 
-    @include font-size(32);
-    color: #fff;
+    @include font-size(36);
+    font-weight: 800;
+    color: #929e78;
     margin-bottom: 15px;
 }
 p {
@@ -21,5 +22,9 @@ a {
 
 button {
     border: none;
-    background: #fff;
+    background: #8a827d;
+    &:hover {
+        background: #fff;
+        transition: 1.2;
+    }
 }

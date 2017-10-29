@@ -15,6 +15,10 @@
 		ul li {
 			display: flex;
 			button {
+				font-family: 'Baloo', cursive;
+				color: #0c4d58;				
+				@include font-size(24);
+				font-weight: bold;
 				width: 100%;
 				border-radius: 50%;
 				transition: .15s;

@@ -1,18 +1,5 @@
 .circle-container {
-  @include on-circle($item-count: 12, $circle-size: 25em, $item-size: 2.5em); 
+  @include on-circle($item-count: 12, $circle-size: 18em, $item-size: 3em); 
   margin: 0 auto;
-  border: solid 1px #8a827d;
-  
-  img { 
-    display: block; 
-    max-width: 100%; 
-    border-radius: 50%;
-    filter: grayscale(100%);
-    border: solid 5px tomato;
-    transition: .15s;
-    &:hover,
-    &:active {
-      filter: grayscale(0);
-    }
-  }
+  border: solid 5px #8a827d;
 }

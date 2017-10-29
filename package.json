@@ -1,7 +1,7 @@
 {
   "name": "circleoffifths",
   "version": "1.0.0",
-  "description": "A Pen created at CodePen.io. You can find this one at https://codepen.io/calivalverde/pen/pWqMmd.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/calivalverde/circleOfFifths.git"
   },
-  "author": "",
+  "author": "Carlos Valverde Ch.",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/calivalverde/circleOfFifths/issues"
@@ -36,6 +36,5 @@
     "gulp-watch": "^4.3.11",
     "node-sass-globbing": "0.0.23",
     "sass-module-importer": "^1.4.0",
-    "singularitygs": "^1.8.0"
   }
 }

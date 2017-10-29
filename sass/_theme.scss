@@ -2,7 +2,7 @@ body {
     font-family: 'Exo 2', sans-serif;
     color: #b0aeac;
     background: #2e2924;    
-    text-align: center;
+    //text-align: center;
     @include font-size(14);
 }
 h1 { 
@@ -22,5 +22,4 @@ a {
 button {
     border: none;
     background: #fff;
-    margin: 5px;
 }

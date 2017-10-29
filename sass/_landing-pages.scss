@@ -1,0 +1,28 @@
+.circleOfFifths {
+	h1,
+	p {
+		text-align: center;
+	}
+	.container {
+		padding: 15px 0;
+	}
+	.grid {
+		margin: 45px 0;
+	}
+	main {
+		//background: lightgreen;
+		justify-self: end;
+		ul li {
+			display: flex;
+			button {
+				width: 100%;
+				border-radius: 50%;
+				transition: .15s;
+			}
+		}
+	}
+	aside {
+		//background: lightblue;
+	}
+
+}

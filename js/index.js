@@ -61,13 +61,15 @@ let reb = new Key('Db');
 listOfKeys = () => {
 
   let extractAllKeySigantures = Object.keys(allKeys);
-  
+  //reorganiza el arraglo para adapartalo al diseño
+  let reOrderKeys = extractAllKeySigantures.slice(9).concat(extractAllKeySigantures.slice(0,9));
+
   let ul = document.createElement('ul');
   ul.setAttribute("class", "circle-container");
   
   document.querySelector('#myList').appendChild(ul);
   
-  extractAllKeySigantures.forEach(function(eachKey){
+  reOrderKeys.forEach(function(eachKey){
     var li = document.createElement('li');
     li.setAttribute("id", eachKey);
     ul.appendChild(li);

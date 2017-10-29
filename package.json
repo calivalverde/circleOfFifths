@@ -35,6 +35,6 @@
     "gulp-uncss": "^1.0.6",
     "gulp-watch": "^4.3.11",
     "node-sass-globbing": "0.0.23",
-    "sass-module-importer": "^1.4.0",
+    "sass-module-importer": "^1.4.0"
   }
 }

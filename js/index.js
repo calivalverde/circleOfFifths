@@ -23,11 +23,13 @@ class Key {
   }
 
  get sharpsOrFlats () {
+    //combierte el valor a entero positivo.
     return allKeys[this.name] < 0 ? Math.abs(allKeys[this.name]) + '♭'
     : allKeys[this.name] === 0 ? 'no flats or sharps.'
     : allKeys[this.name] + '♯';
   }
 
+  //hay que arreglar el resultado con el simbolo correcto
   get accidentals() {
     let listAccidentals;
     if (allKeys[this.name] < 0) {
@@ -39,13 +41,11 @@ class Key {
   }
 
   get pitches () {
-    //utiliza solo el primer caracter para evitar bemoles.
-    let keyCutter = this.name[0];
-    //identifica el indice de la tónica en array de notas naturales.
-    let keyIndex = naturalNotes.indexOf(keyCutter);
+    //identifica el indice de la tónica en array de notas naturales. Utiliza solo el primer caracter para evitar bemoles.
+    let keyIndex = naturalNotes.indexOf(this.name[0]);
     //nuevo array con orden de notas naturales para esta tónica.
     let pitchCollection = naturalNotes.slice(keyIndex).concat(naturalNotes.slice(0,keyIndex));
-    // define una variable con los accidentes de la tonalidad llamando a la propiedad.
+    // define un array con los accidentes de la tonalidad llamando la propiedad.
     let accidentals  = this.accidentals;
     // define una variable con el simbolo de sostenido o bemol.
     let accidentType;
@@ -100,6 +100,12 @@ listOfKeys();
 //Input
 setKey = (inputKey) => {
    let newKey = new Key(inputKey);
-   console.log(newKey.sharpsOrFlats);
-   document.querySelector('#result').innerHTML = `${newKey.name} major has ${newKey.sharpsOrFlats} ${newKey.accidentals}`;
+   document.querySelector('#result').innerHTML = `
+    <ul>
+      <li><h2>${newKey.name} Major</h2></li>
+      <li>Alterations: ${newKey.sharpsOrFlats}</li>
+      <li>Scale: ${newKey.pitches}</li>
+      <li>Accidentals: ${newKey.accidentals}</li>
+    </ul>
+   `;
 };

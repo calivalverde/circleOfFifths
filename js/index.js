@@ -1,4 +1,5 @@
 const naturalNotes = ['C','D','E','F','G','A','B'];
+const modes = ['Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Locrian'];
 const orderSharps = ['F','C','G','D','A','E'];
 const orderFlats = ['B','E','A','D','G','C'];
 const allKeys = {
@@ -17,39 +18,56 @@ const allKeys = {
 };
 
 class Key {
-  constructor (name,scale) {
+  constructor (name) {
     this.name = name;
-    this.scale = scale;
   }
-  get sharpsOrFlats () {
-    let accidentals = allKeys[this.name];
-    return accidentals < 0 ? Math.abs(allKeys[this.name]) + '♭'
-    : accidentals === 0 ? 'no flats or sharps.'
-    : allKeys[this.name] + '♯';  
+
+ get sharpsOrFlats () {
+    return allKeys[this.name] < 0 ? Math.abs(allKeys[this.name]) + '♭'
+    : allKeys[this.name] === 0 ? 'no flats or sharps.'
+    : allKeys[this.name] + '♯';
   }
+
+  get accidentals() {
+    let listAccidentals;
+    if (allKeys[this.name] < 0) {
+      listAccidentals = orderFlats.slice(0,Math.abs(allKeys[this.name]));
+      } else {
+      listAccidentals = orderSharps.slice(0,(allKeys[this.name]));
+    };
+    return listAccidentals; 
+  }
+
   get pitches () {
-    //quita el último caracter para evitar bemoles.
+    //utiliza solo el primer caracter para evitar bemoles.
     let keyCutter = this.name[0];
-    //identifica el indice en array de notas naturales.
+    //identifica el indice de la tónica en array de notas naturales.
     let keyIndex = naturalNotes.indexOf(keyCutter);
     //nuevo array con orden de notas naturales para esta tónica.
-    let a = naturalNotes.slice(keyIndex);
-    let b = naturalNotes.slice(0,keyIndex);
-    return a.concat(b);
-  }
-  get accidentals() {
-    let accidentals = allKeys[this.name]; 
-    let listAccidentals;
-    if (accidentals < 0) {
-      listAccidentals = orderFlats.slice(0,Math.abs(accidentals));
-      } else {
-      listAccidentals = orderSharps.slice(0,(accidentals));
-    };    
-    return listAccidentals; 
+    let pitchCollection = naturalNotes.slice(keyIndex).concat(naturalNotes.slice(0,keyIndex));
+    // define una variable con los accidentes de la tonalidad llamando a la propiedad.
+    let accidentals  = this.accidentals;
+    // define una variable con el simbolo de sostenido o bemol.
+    let accidentType;
+    if (allKeys[this.name] > 0) {
+      accidentType = '♯'
+    } else {
+      accidentType = '♭'
+    }
+    // crea nueva familia con notas sus alteraciones respectivas
+    var newFamilly = pitchCollection.map(function(x) {
+      for (var i = 0; i < accidentals.length; i++) {
+          if (x === accidentals[i]) { 
+            return x + accidentType; //alambrado
+          }
+      } return x;
+    });
+    return newFamilly;
   }
 };
 
 //Tester
+let du = new Key('C');
 let sol = new Key('G');
 let re = new Key('D');
 let la = new Key('A');

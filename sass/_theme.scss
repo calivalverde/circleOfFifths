@@ -1,6 +1,7 @@
 body {
     font-family: 'Exo 2', sans-serif;
     color: #b0aeac;
+    min-height: 700px;
     background: #2e2924;
     @include font-size(18);
     line-height: 1.5;

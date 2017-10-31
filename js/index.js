@@ -24,9 +24,9 @@ class Key {
 
  get sharpsOrFlats () {
     //combierte el valor a entero positivo.
-    return allKeys[this.name] < 0 ? Math.abs(allKeys[this.name]) + '♭'
+    return allKeys[this.name] < 0 ? Math.abs(allKeys[this.name]) + '<sup>♭</sup>'
     : allKeys[this.name] === 0 ? 'no flats or sharps.'
-    : allKeys[this.name] + '♯';
+    : allKeys[this.name] + '<sup>♯</sup>';
   }
 
   //hay que arreglar el resultado con el simbolo correcto
@@ -50,9 +50,9 @@ class Key {
     // define una variable con el simbolo de sostenido o bemol.
     let accidentType;
     if (allKeys[this.name] > 0) {
-      accidentType = '♯'
+      accidentType = '<sup>♯</sup>'
     } else {
-      accidentType = '♭'
+      accidentType = '<sup>♭</sup>'
     }
     // crea nueva familia con notas sus alteraciones respectivas
     let newFamilly = pitchCollection.map(function(x) {
@@ -76,7 +76,7 @@ class Key {
     } return builder;
   }
 
-};//class
+};//class Key
 
 //Tester
 let du = new Key('C');
@@ -86,10 +86,8 @@ let la = new Key('A');
 let sib = new Key('Bb');
 let reb = new Key('Db');
 
-
 //Create Buttons
 listOfKeys = () => {
-
   let extractAllKeySigantures = Object.keys(allKeys);
   //reorganiza el arraglo para adapartalo al diseño
   let reOrderKeys = extractAllKeySigantures.slice(9).concat(extractAllKeySigantures.slice(0,9));

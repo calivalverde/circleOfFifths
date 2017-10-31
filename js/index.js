@@ -1,5 +1,5 @@
 const naturalNotes = ['C','D','E','F','G','A','B'];
-const modes = ['Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Locrian'];
+const modesList = ['Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Locrian'];
 const orderSharps = ['F','C','G','D','A','E'];
 const orderFlats = ['B','E','A','D','G','C'];
 const allKeys = {
@@ -55,16 +55,28 @@ class Key {
       accidentType = '♭'
     }
     // crea nueva familia con notas sus alteraciones respectivas
-    var newFamilly = pitchCollection.map(function(x) {
-      for (var i = 0; i < accidentals.length; i++) {
+    let newFamilly = pitchCollection.map(function(x) {
+      for (let i = 0; i < accidentals.length; i++) {
           if (x === accidentals[i]) { 
-            return x + accidentType; //alambrado
+            return x + accidentType;
           }
       } return x;
     });
     return newFamilly;
   }
-};
+
+  get modes() {
+    let builder = [];
+    let pitchesTemp = this.pitches;
+    for (let i = 0; i < pitchesTemp.length; i++) {
+      for (let j = 0; j < modesList.length; j++) {
+       builder.push(pitchesTemp[i] + ' ' + modesList[j]); 
+       pitchesTemp.shift();
+      }  
+    } return builder;
+  }
+
+};//class
 
 //Tester
 let du = new Key('C');
@@ -106,6 +118,7 @@ setKey = (inputKey) => {
       <li>Alterations: ${newKey.sharpsOrFlats}</li>
       <li>Scale: ${newKey.pitches}</li>
       <li>Accidentals: ${newKey.accidentals}</li>
+      <li>Modes: ${newKey.modes}</li>
     </ul>
    `;
 };

@@ -87,7 +87,7 @@ let sib = new Key('Bb');
 let reb = new Key('Db');
 
 //Create Buttons
-listOfKeys = () => {
+function listOfKeys() {
   //crea una variable con todas las tonalidades ** prueba **
   let extractAllKeySigantures = Object.keys(allKeys);
   

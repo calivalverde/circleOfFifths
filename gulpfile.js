@@ -64,7 +64,6 @@ gulp.task('sass', function () {
 //Type "gulp" on the command line to watch file changes
 gulp.task('watch', function(){
   livereload.listen();
-    gulp.watch('./lib/es6/*.js', ['babel']);
     gulp.watch('./lib/*.js', ['uglify']);
     gulp.watch('../min-js/*.js', ['concat']);
     gulp.watch('./sass/**/*.scss', ['sass']);

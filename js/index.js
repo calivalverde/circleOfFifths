@@ -88,35 +88,54 @@ let reb = new Key('Db');
 
 //Create Buttons
 listOfKeys = () => {
+  //crea una variable con todas las tonalidades ** prueba **
   let extractAllKeySigantures = Object.keys(allKeys);
+  
   //reorganiza el arraglo para adapartalo al diseño
   let reOrderKeys = extractAllKeySigantures.slice(9).concat(extractAllKeySigantures.slice(0,9));
 
+  //una variable ul que coniente el HTML UL
   let ul = document.createElement('ul');
-  ul.setAttribute("class", "circle-container");
-  
-  document.querySelector('#myList').appendChild(ul);
-  
+  ul.setAttribute('class', 'circle-container');
+
   reOrderKeys.forEach(function(eachKey){
-    var li = document.createElement('li');
-    li.setAttribute("class", eachKey);
+    //crea una lista por cada elemento del arreglo  
+    let li = document.createElement('li');
+    //crea los botones por cada tonica    
+    let button = document.createElement('button');
+    button.setAttribute('value', eachKey);
+    button.setAttribute('class', 'button');
+    button.innerText = eachKey;
+    //imprime en ul el contenido de li
+    li.appendChild(button);
     ul.appendChild(li);
-    li.innerHTML += `<button value='${eachKey}' onclick='setKey(this.value)'>${eachKey}</button>`;
   });
-}
+
+//imprime el UL
+ document.querySelector('#myList').appendChild(ul); 
+
+}//listOfKeys
+
 listOfKeys();
- 
 
 //Input
-setKey = (inputKey) => {
-   let newKey = new Key(inputKey);
-   document.querySelector('#result').innerHTML = `
-    <ul>
-      <li><h2>${newKey.name} Major</h2></li>
-      <li>Alterations: ${newKey.sharpsOrFlats}</li>
-      <li>Scale: ${newKey.pitches}</li>
-      <li>Accidentals: ${newKey.accidentals}</li>
-      <li>Modes: ${newKey.modes}</li>
-    </ul>
-   `;
-};
+const buttons = document.getElementsByClassName('button');
+
+for (let i=0 ; i < buttons.length ; i++) {
+  (function(index) {
+    buttons[index].onclick = function(){
+      let newKey = new Key(this.value);
+      document.querySelector('#result').innerHTML = `
+        <ul>
+          <li><h2>${newKey.name} Major</h2></li>
+          <li>Alterations: ${newKey.sharpsOrFlats}</li>
+          <li>Scale: ${newKey.pitches}</li>
+          <li>Accidentals: ${newKey.accidentals}</li>
+          <li>Modes: ${newKey.modes}</li>
+        </ul>
+       `;
+    };
+  }) (i); 
+}
+
+

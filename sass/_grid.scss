@@ -1,7 +1,9 @@
 // Grid
 
 .grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr; //one fraction and one fraction = 50%
-	grid-gap: 1em;
+	@include breakpoint($medium) {
+		display: grid;
+		grid-template-columns: 1fr 1fr; //one fraction and one fraction = 50%
+		grid-gap: 1em;
+	}
 }

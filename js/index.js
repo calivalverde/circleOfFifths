@@ -99,7 +99,7 @@ listOfKeys = () => {
   
   reOrderKeys.forEach(function(eachKey){
     var li = document.createElement('li');
-    li.setAttribute("id", eachKey);
+    li.setAttribute("class", eachKey);
     ul.appendChild(li);
     li.innerHTML += `<button value='${eachKey}' onclick='setKey(this.value)'>${eachKey}</button>`;
   });

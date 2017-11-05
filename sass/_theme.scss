@@ -8,8 +8,9 @@ body {
 }
 h1 { 
     @include font-size(48);
+    font-family: 'Martel', serif;
     font-weight: 800;
-    color: #929e78;
+    color: #b3c37f;
     margin-bottom: 15px;
 }
 h2 {

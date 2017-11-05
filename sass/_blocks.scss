@@ -15,24 +15,24 @@
 			border: none;
 			&:hover {
 		    	background: lightgrey;
-		    	transition: 1s;
+		    	transition: .5s;
 			}
 		}//button
 		&.key {
 			button {
-				background: #f3f718;
-				transition: 3s;
+				background: #fdff75;
+				transition: 2s;
 			}
 		}
 		&.dominant {
 			button {
-				background: #f79418;
+				background: #f98b3d;
 				transition: 3s;
 			}
 		}
 		&.subdominant {
 			button {
-				background: #85f7d2;
+				background: #76ffcc;
 				transition: 3s;
 			}
 		}

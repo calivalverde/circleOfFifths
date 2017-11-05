@@ -27,10 +27,14 @@ a {
 
 button {
     border: none;
-    background: #8a827d;
-    &:hover {
-        background: #fff;
-        transition: .6s;    }
+    outline:none;
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited{
+        border: none;
+        outline:none;
+    }
 }
 sup {
     vertical-align: super;

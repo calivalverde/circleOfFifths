@@ -10,22 +10,9 @@
 		margin: 45px 0;
 	}
 	main {
-		//background: lightgreen;
-		justify-self: end;
-		ul li {
-			display: flex;
-			button {
-				font-family: 'Baloo', cursive;
-				color: #0c4d58;				
-				@include font-size(24);
-				font-weight: bold;
-				width: 100%;
-				border-radius: 50%;
-			}
-		}
+		justify-self: end;			
 	}
 	aside {
 		padding: 0 10%;
 	}
-
 }

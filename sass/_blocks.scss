@@ -1,5 +1,40 @@
 .circle-container {
-  @include on-circle($item-count: 12, $circle-size: 18em, $item-size: 3em); 
-  margin: 0 auto;
-  border: solid 5px #8a827d;
+	@include on-circle($item-count: 12, $circle-size: 18em, $item-size: 3em); 
+	margin: 0 auto;
+	border: solid 5px #8a827d;
+	li {
+		display: flex;
+		button {
+			font-family: 'Baloo', cursive;
+			background: #8a827d;
+			color: #0c4d58;				
+			@include font-size(24);
+			width: 100%;
+			font-weight: bold;
+			border-radius: 50%;
+			border: none;
+			&:hover {
+		    	background: lightgrey;
+		    	transition: 1s;
+			}
+		}//button
+		&.key {
+			button {
+				background: #f3f718;
+				transition: 3s;
+			}
+		}
+		&.dominant {
+			button {
+				background: #f79418;
+				transition: 3s;
+			}
+		}
+		&.subdominant {
+			button {
+				background: #85f7d2;
+				transition: 3s;
+			}
+		}
+	}//li
 }

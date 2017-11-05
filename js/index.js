@@ -86,9 +86,13 @@ let la = new Key('A');
 let sib = new Key('Bb');
 let reb = new Key('Db');
 
-//Create Buttons
+///////////////////////////////////////
+//////OUTPUT
+///////////////////////////////////////
+
+//Crear los buttons
 function listOfKeys() {
-  //crea una variable con todas las tonalidades ** prueba **
+  //crea una variable con todas las tonalidades
   let extractAllKeySigantures = Object.keys(allKeys);
   
   //reorganiza el arraglo para adapartalo al diseño

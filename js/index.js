@@ -167,12 +167,20 @@ buttons.forEach((button) => {
 
 //Print newKey results
 function print() {
-    document.querySelector('#result').innerHTML = `
-    <ul>
-      <li><h2>${newKey.name} Major</h2></li>
-      <li>Alterations: ${newKey.sharpsOrFlats}</li>
-      <li>Scale: ${newKey.pitches}</li>
-      <li>Accidentals: ${newKey.accidentals}</li>
-    </ul>
-   `;
+    document.querySelector('h2#key').innerHTML = `${newKey.name} Major`;
+    document.querySelector('h3#scale').innerHTML = `Scale: ${newKey.pitches}`;
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

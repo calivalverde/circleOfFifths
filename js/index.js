@@ -40,40 +40,40 @@ class Key {
             allKeys[this.name] === 0 ? 'no flats or sharps.' :
             allKeys[this.name] + '♯';
     }
-
-    //hay que arreglar el resultado con el simbolo correcto
     get accidentals() {
         let listAccidentals;
         if (allKeys[this.name] < 0) {
-            listAccidentals = orderFlats.slice(0, Math.abs(allKeys[this.name]));
+            // Crea un array con las alteraciones
+            let accidentals = orderFlats.slice(0, Math.abs(allKeys[this.name]));
+            // Combina el nombre de la alteración con el símbolo
+            listAccidentals = accidentals.map((accidental) => {
+                return accidental + '♭';
+            });
         } else {
-            listAccidentals = orderSharps.slice(0, (allKeys[this.name]));
+            let accidentals = orderSharps.slice(0, (allKeys[this.name]));
+            listAccidentals = accidentals.map((accidental) => {
+                return accidental + '#';
+            });
         };
         return listAccidentals;
     }
 
     get pitches() {
-        //identifica el indice de la tónica en array de notas naturales. 
+        //identifica el indice de la tónica en array de notas naturales [0] pasa el primer caracter. 
         let keyIndex = naturalNotes.indexOf(this.name[0]);
         //nuevo array con orden de notas naturales para esta tónica.
         let pitchCollection = naturalNotes.slice(keyIndex).concat(naturalNotes.slice(0, keyIndex));
         // define un array con los accidentes de la tonalidad llamando la propiedad.
         let accidentals  = this.accidentals;
-        // define una variable con el simbolo de sostenido o bemol.
-        let accidentType;
-        if (allKeys[this.name] > 0) {
-            accidentType = '♯'
-        } else {
-            accidentType = '♭'
-        }
+
         // crea nueva familia con notas y sus alteraciones respectivas
-        let newFamilly = pitchCollection.map(function(x) {
+        let newFamilly = pitchCollection.map((pitch) => {
             for (let i = 0; i < accidentals.length; i++) {
-                if (x === accidentals[i]) {
-                    return x + accidentType;
+                if (pitch === accidentals[i][0]) {
+                    return accidentals[i];
                 }
             }
-            return x;
+            return pitch;
         });
         return newFamilly;
     }

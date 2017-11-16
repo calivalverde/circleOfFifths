@@ -173,7 +173,8 @@ buttons.forEach((button) => {
 function print() {
     document.querySelector('h2#key').innerHTML = `${newKey.name} Major`;
     document.querySelector('h3#scale').innerHTML = `Scale: ${newKey.pitches}`;
-
+    document.querySelector('#modes').innerHTML = `<h4>Modes</h4> ${newKey.modes}`;
+    //document.querySelector('#chords').innerHTML = `<h4>Chords</h4> ${newKey.chords};
 }
 
 //Print Staff

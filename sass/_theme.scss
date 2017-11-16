@@ -5,12 +5,17 @@ body {
     @include font-size(18);
     line-height: 1.5;
 }
+.main {
+    text-align: center;
+    margin: 2rem 1em 4rem;
+    overflow: hidden;
+}
 h1 { 
     @include font-size(48);
+    line-height: 1.2;
     font-family: 'Martel', serif;
     font-weight: 800;
     color: #b3c37f;
-    margin: 2rem 0 1rem;
 }
 h2 {
     @include font-size(24);

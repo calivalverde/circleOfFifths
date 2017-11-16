@@ -1,9 +1,44 @@
-// Grid
-
-.grid {
+.container {
+	display: grid;
+	padding: 0 5%;
+	grid-gap: 2rem;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas:
+		"main-content main-content"
+		"content-2 content-2"
+		"content-4 content-4"
+		"content-3 content-3"
+		"footer footer";	
 	@include breakpoint($medium) {
-		display: grid;
-		grid-template-columns: 1fr 1fr; //one fraction and one fraction = 50%
-		grid-gap: 1em;
+		grid-gap: 1rem;
+		grid-template-columns: 2fr 1fr 1fr;
+		grid-template-areas:
+		"main-content content-2 content-4"
+		"main-content content-3 content-4"
+		"footer footer footer";	
+	}
+
+}
+.main-content {
+	grid-area: main-content;
+	justify-self: center;
+	@include breakpoint($medium) {
+		justify-self: right;
+		padding-right: 45px;
 	}
 }
+.content-2 {
+	grid-area: content-2;
+}
+.content-3 {
+	grid-area: content-3;
+}
+.content-4 {
+	grid-area: content-4;
+}
+.footer {
+	grid-area: footer;
+	text-align: center;
+	margin-top: 5rem;
+}
+

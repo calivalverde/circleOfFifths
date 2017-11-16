@@ -1,14 +1,19 @@
 .circle-container {
-	@include on-circle($item-count: 12, $circle-size: 18em, $item-size: 3em); 
-	margin: 0 auto;
 	border: solid 5px #8a827d;
+	@include on-circle($item-count: 12, $circle-size: 13em, $item-size: 2.2em); 
+	@include breakpoint($medium) {
+		@include on-circle($item-count: 12, $circle-size: 18em, $item-size: 3em);
+	}
 	li {
 		display: flex;
 		button {
 			font-family: 'Baloo', cursive;
 			background: #8a827d;
 			color: #0c4d58;				
-			@include font-size(24);
+			@include font-size(18);
+			@include breakpoint($medium) {
+				@include font-size(24);
+			}
 			width: 100%;
 			font-weight: bold;
 			border-radius: 50%;
@@ -37,4 +42,33 @@
 			}
 		}
 	}//li
+}
+.staff {
+	visibility: hidden;
+	&.active {
+		visibility: visible;
+	}
+	svg {
+		padding: 2rem;
+		background: #fff;
+		border-radius: 2rem;
+		width: 100%;
+		@include breakpoint($medium) {
+			max-width: 200px;
+		}			
+		path {
+			&.inactive {
+				visibility: hidden;
+			}	
+			
+			&.active {
+				visibility: visible;
+			}	
+		}
+		g {
+			stroke: #000;
+			stroke-opacity: .3; 
+			stroke-width: 4;
+		}
+	}
 }

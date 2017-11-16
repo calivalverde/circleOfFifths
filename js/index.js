@@ -147,12 +147,15 @@ function listOfKeys() {
 listOfKeys();
 
 
+
+
+
 ///////////////////////////////////////
 //////INPUT
 ///////////////////////////////////////
 
 const buttons = document.querySelectorAll('ul.circle-container > li > button');
-
+let svgPaths = document.querySelectorAll('.staff svg > path');
 let newKey;
 
 //Set the new Key
@@ -160,7 +163,8 @@ buttons.forEach((button) => {
     (function() {
         button.onclick = function() {
             newKey = new Key(button.value);
-            print()
+            print();
+            staff();
         };
     })(button);
 });
@@ -172,15 +176,28 @@ function print() {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+//Print Staff
+function staff() {
+    document.querySelector('.staff').classList.add('active');
+    //reset de clase
+    svgPaths.forEach(function(eachPath) {
+        eachPath.setAttribute("class", "inactive");
+    });
+    //si el segundo caracter de la propiedad "accidentals" es "♭"
+    if (newKey.accidentals != 0 && newKey.accidentals[0][1] === "♭") {
+        for (let i = 0; i < svgPaths.length; i++) {
+            //i+7 para brincarse lo 7 sostenidos del SVG
+            svgPaths[i + 7].setAttribute("class", "active");
+            if (i === (newKey.accidentals.length - 1)) {
+                break;
+            }
+        }
+    } else if (newKey.accidentals != 0 && newKey.accidentals[0][1] === "#") {
+        for (let i = 0; i < svgPaths.length; i++) {
+            svgPaths[i].setAttribute("class", "active");
+            if (i === (newKey.accidentals.length - 1)) {
+                break;
+            }
+        }
+    }
+}

@@ -119,7 +119,7 @@ var sib = new Key('Bb');
 var reb = new Key('Db');
 
 ///////////////////////////////////////
-//////OUTPUT
+//////CIRCLE OUTPUT
 ///////////////////////////////////////
 
 //Crear los buttons
@@ -132,7 +132,7 @@ function listOfKeys() {
 
     //una variable ul que coniente el UL
     var ul = document.createElement('ul');
-    ul.setAttribute('class', 'circle-container');
+    ul.setAttribute('class', 'circle-container z-depth-4');
 
     reOrderKeys.forEach(function (eachKey) {
         //crea una lista por cada elemento del arreglo  
@@ -140,7 +140,7 @@ function listOfKeys() {
         //crea los botones por cada tonica    
         var button = document.createElement('button');
         button.setAttribute('value', eachKey);
-        button.setAttribute('class', 'button');
+        button.setAttribute('class', 'z-depth-1 waves-effect waves-light blue-grey-text text-darken-4');
         button.innerText = eachKey;
         //imprime en ul el contenido de li
         li.appendChild(button);
@@ -175,8 +175,8 @@ buttons.forEach(function (button) {
 
 //Print newKey results
 function print() {
-    document.querySelector('h2#key').innerHTML = newKey.name + ' Major';
-    document.querySelector('h3#scale').innerHTML = 'Scale: ' + newKey.pitches;
+    document.querySelector('#key').innerHTML = newKey.name + ' Major';
+    document.querySelector('#scale').innerHTML = 'Scale: ' + newKey.pitches;
     document.querySelector('#modes').innerHTML = '<h4>Modes</h4> ' + newKey.modes;
     //document.querySelector('#chords').innerHTML = `<h4>Chords</h4> ${newKey.chords};
 }

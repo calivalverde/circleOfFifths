@@ -1,8 +1,6 @@
 body {
     font-family: 'Exo 2', sans-serif;
-    //color: #b0aeac;
     @include font-size(18);
-    line-height: 1.5;
 }
 .main {
     text-align: center;
@@ -14,17 +12,6 @@ h1 {
     font-family: 'Martel', serif;
 }
 
-button {
-    border: none;
-    outline:none;
-    &:hover,
-    &:focus,
-    &:active,
-    &:visited{
-        border: none;
-        outline:none;
-    }
-}
 sup {
     vertical-align: super;
     @include font-size(12);

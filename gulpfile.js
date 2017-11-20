@@ -21,30 +21,17 @@ var sass_config = {
 };
 
 //Babel JavaScript compiler
-gulp.task('babel', () =>
-  gulp.src('./lib/es6/*.js')
+gulp.task('babel', () => {
+  gulp.src('./js/*.js')
     .pipe(sourcemaps.init())
     .pipe(babel({
         presets: ['env']
     }))
-    .pipe(concat('compile.js'))
+    .pipe(concat('app.js'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./lib'))
-);
-
-//Uglifies javascript
-gulp.task('uglify', function() {
-  gulp.src('./lib/*.js')
-    .pipe(uglify(''))
     .pipe(gulp.dest('./min-js'))
 });
 
-// Combine javascript files
-gulp.task('concat', function() {
-  return gulp.src('./min-js/*.js')
-    .pipe(concat('main.js'))
-    .pipe(gulp.dest('./js'));
-});
 
 //Compiles sass
 gulp.task('sass', function () {
@@ -64,8 +51,6 @@ gulp.task('sass', function () {
 //Type "gulp" on the command line to watch file changes
 gulp.task('watch', function(){
   livereload.listen();
-    gulp.watch('./lib/*.js', ['uglify']);
-    gulp.watch('../min-js/*.js', ['concat']);
     gulp.watch('./sass/**/*.scss', ['sass']);
     gulp.watch(['./css/style.css', './**/*.html', './js/*.js'], function (files){
       livereload.changed(files)
@@ -73,4 +58,4 @@ gulp.task('watch', function(){
 });
 
 //Default Task
-gulp.task('default', ['babel','uglify','concat','sass','watch']);
+gulp.task('default', ['babel','sass','watch']);

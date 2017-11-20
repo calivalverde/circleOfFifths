@@ -9,19 +9,14 @@
 @import "sass/components/**/*.scss";
 
 /* Setup */
-@import "reset";
 @import "mixins";
 @import "fonts";
 @import "globals";
 
-/* Grid  */
+/* Grid / RWD  */
 @import "breakpoints";
 @import "grid";
 
-/* DP parts */
-@import "color-palette";
-@import "extendables";
+/* Custom */
 @import "theme";
-@import "menus";
-@import "blocks";
-@import "landing-pages";
+@import "components";

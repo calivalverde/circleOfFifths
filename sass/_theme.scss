@@ -1,45 +1,17 @@
 body {
     font-family: 'Exo 2', sans-serif;
-    color: #b0aeac;
-    background: #2e2924;
     @include font-size(18);
-    line-height: 1.5;
 }
 .main {
     text-align: center;
-    margin: 2rem 1em 4rem;
+    margin: 1rem 1em 2rem;
     overflow: hidden;
 }
+
 h1 { 
-    @include font-size(48);
-    line-height: 1.2;
     font-family: 'Martel', serif;
-    font-weight: 800;
-    color: #b3c37f;
 }
-h2 {
-    @include font-size(24);
-    color: #fff;
-}
-p {
-    font-weight: 200;
-    @include font-size(16);
-}
-a {
-    text-decoration: none;
-    color: #a5d577;
-}
-button {
-    border: none;
-    outline:none;
-    &:hover,
-    &:focus,
-    &:active,
-    &:visited{
-        border: none;
-        outline:none;
-    }
-}
+
 sup {
     vertical-align: super;
     @include font-size(12);

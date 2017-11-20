@@ -19,42 +19,50 @@
 			border-radius: 50%;
 			border: none;
 			&:hover {
-		    	background: lightgrey;
+		     	background: lightgrey;
 		    	transition: .5s;
-			}
+			 }
 		}//button
 		&.key {
 			button {
-				background: #fdff75;
-				transition: 2s;
+				background: yellow;
 			}
 		}
 		&.dominant {
 			button {
-				background: #f98b3d;
+				background: orange;
 				transition: 3s;
 			}
 		}
 		&.subdominant {
 			button {
-				background: #76ffcc;
+				background: cyan;
 				transition: 3s;
 			}
 		}
 	}//li
 }
+.card#results {
+	visibility: hidden;
+	&.active {
+		visibility: visible;
+		transition: 5s;
+	}
+}
+
 .staff {
 	visibility: hidden;
 	&.active {
 		visibility: visible;
 	}
 	svg {
-		padding: 2rem;
 		background: #fff;
-		border-radius: 2rem;
+		padding: 2rem;
 		width: 100%;
 		@include breakpoint($medium) {
 			max-width: 200px;
+			margin: 1em;
+			border-radius: 5px;
 		}			
 		path {
 			&.inactive {

@@ -29,7 +29,7 @@ gulp.task('babel', () => {
     }))
     .pipe(concat('app.js'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./min-js'))
+    .pipe(gulp.dest('./public/js'))
 });
 
 
@@ -45,7 +45,7 @@ gulp.task('sass', function () {
     .pipe(stripCssComments({preserve: false}))
     .pipe(cssmin())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./public/css'));
 });
 
 //Type "gulp" on the command line to watch file changes
